@@ -26,7 +26,7 @@ def compress(in_name, out_name):
 
     pref = Pref(contentSize=1, compressionLevel=3)
     src_size = len(src)
-    dst_size = src_size * 2  # it should be enough
+    dst_size = src_size * 2 + 4  # it should be enough
     dst = (ctypes.c_char * dst_size)()
     size = fn(ctypes.byref(dst), dst_size, ctypes.c_char_p(src), src_size, ctypes.byref(pref))
     if size < 0:
